@@ -115,8 +115,10 @@ public class Renderer {
     }
 
     private static DisplayData finalizeDisplayData(DisplayData data, Object value) {
-        if (!data.hasDataForType(MIMEType.TEXT_PLAIN))
+        if (!data.hasDataForType(MIMEType.TEXT_PLAIN)) {
             data.putText(String.valueOf(value));
+        }
+        data.putMarkdown(String.valueOf(value));
 
         return data;
     }
